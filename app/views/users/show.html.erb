@@ -1,0 +1,8 @@
+<h3>User: <%= @user.name %></h3>
+
+<h4>User Profile</h4>
+<ul>
+  <li><%= "User since: #{@user.created_at}" %></li>
+  <li><%= "Total Posts: #{@user.posts.count}" %></li>
+  <li><%= "Total Comments: #{@user.comments.count}" %></li>
+</ul>

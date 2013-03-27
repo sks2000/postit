@@ -1,1 +1,22 @@
-<h5>Welcome to the project template!</h5>
+<h2>Posts</h2>
+
+<%= link_to  "Create a new post", new_post_path, class: "btn" %>
+<br><br>
+
+
+<% @posts.each do |p| %>
+  <div>
+  	<p>
+  	<%#= p.url.nil? ? (link_to p.title, "/posts/#{p.id}") : (link_to p.url, format_url(p.url)) %>
+  	<div id="ptitle"><%= p.url.nil? ? (link_to p.title, post_path(p.id)) : (link_to p.url, format_url(p.url)) %></div>
+  	<small>
+  	  <%= "Posted by #{p.user.name} #{time_ago_in_words(p.created_at)} ago" %>
+  	  <br>
+  	  <%= link_to (p.comments.count.to_s + " comments"), post_path(p.id) %>
+  	</small>
+    </p>
+  </div>
+<% end %>
+
+
+

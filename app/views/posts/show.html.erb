@@ -1,0 +1,26 @@
+<h3><%= @post.title %></h3>
+<p> 
+  <%= @post.body %><br>
+  <b><%= "Posted by #{@post.user.name unless @post.user.nil?} on #{@post.created_at}" %></b>
+</p>
+
+<h4>Add a comment:</h4>
+
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= render 'shared/errors', obj: @comment %>
+  <%= f.label :body %>
+  <%= f.text_area :body, rows: 5 %>
+  <br>
+  <%= f.submit class: "btn" %>
+<% end %>
+
+<h4>Comments:</h4>
+<ul>
+<% @post.comments.reload.each do |c| %>
+  <li>
+  	<%= c.body %><br>
+  	<%= "Posted by #{c.user.name} on #{c.created_at}" %>
+  </li>
+<% end %>
+</ul>

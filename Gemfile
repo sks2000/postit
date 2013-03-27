@@ -5,6 +5,7 @@ gem 'json'
 
 gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'jquery-rails'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,6 +23,7 @@ group :development do
   gem 'sqlite3'
   gem 'pry'
   gem 'quiet_assets'
+  gem 'thin'
 end
 
 group :production do
